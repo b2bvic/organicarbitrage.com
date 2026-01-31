@@ -1,0 +1,11 @@
+{
+  "name": "organicarbitrage",
+  "version": "1.0.0",
+  "description": "Organic Arbitrage — Profit from organic search gaps",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}
