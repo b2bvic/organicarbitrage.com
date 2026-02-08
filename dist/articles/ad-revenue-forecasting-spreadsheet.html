@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/base.css" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <title>Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks | Organic Arbitrage</title>
+    <meta name="description" content="Build financial models that predict display ad revenue across Mediavine,AdThrive,and Ezoic with seasonal RPM fluctuations and traffic projections." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks" />
+    <meta property="og:description" content="Build financial models that predict display ad revenue across Mediavine,AdThrive,and Ezoic with seasonal RPM fluctuations and traffic projections." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://organicarbitrage.com/articles/ad-revenue-forecasting-spreadsheet" />
+    <meta property="og:site_name" content="Organic Arbitrage" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks" />
+    <meta name="twitter:description" content="Build financial models that predict display ad revenue across Mediavine,AdThrive,and Ezoic with seasonal RPM fluctuations and traffic projections." />
+    <link rel="canonical" href="https://organicarbitrage.com/articles/ad-revenue-forecasting-spreadsheet" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://organicarbitrage.com/#organization",
+      "name": "Organic Arbitrage",
+      "url": "https://organicarbitrage.com",
+      "description": "SEO treated as arbitrage, not marketing. Frameworks for finding undervalued traffic and monetizing at multiples above spend.",
+      "founder": {
+        "@type": "Person",
+        "name": "Victor Valentine Romo",
+        "url": "https://victorvalentineromo.com"
+      },
+      "sameAs": [
+        "https://scalewithsearch.com",
+        "https://victorvalentineromo.com",
+        "https://aifirstsearch.com",
+        "https://browserprompt.com",
+        "https://creatinepedia.com",
+        "https://polytraffic.com",
+        "https://tattooremovalnear.com",
+        "https://comicstripai.com",
+        "https://organicarbitrage.com",
+        "https://aipaypercrawl.com",
+        "https://b2bvic.com",
+        "https://seobyrole.com",
+        "https://quickfixseo.com"
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks",
+      "description": [
+        "Build financial models that predict display ad revenue across Mediavine",
+        "AdThrive",
+        "and Ezoic with seasonal RPM fluctuations and traffic projections."
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Victor Valentine Romo",
+        "url": "https://victorvalentineromo.com"
+      },
+      "publisher": {
+        "@id": "https://organicarbitrage.com/#organization"
+      },
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://organicarbitrage.com/articles/ad-revenue-forecasting-spreadsheet"
+      },
+      "keywords": "ad revenue forecasting model"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://organicarbitrage.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "https://organicarbitrage.com/articles"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks",
+          "item": "https://organicarbitrage.com/articles/ad-revenue-forecasting-spreadsheet"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What&#39;s the minimum historical data needed to build reliable forecasts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Twelve months minimum to capture full seasonal cycles. Eighteen to twenty-four months ideal for stable trend identification. Sites with under 12 months of revenue history should use industry benchmarks from comparable sites rather than exclusively relying on their limited historical data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I model RPM for a site not yet on Mediavine or AdThrive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use industry benchmarks for similar niches and traffic volumes from the display ad RPM by niche database. Conservative approach: assume 20th percentile RPM from benchmark range. Optimistic approach: assume 50th percentile. Don&#39;t use 80th percentile unless the site has specific advantages (extremely engaged audience, perfect UX, high pages per session) that justify top-tier performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I forecast pageviews or sessions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pageviews for display ad revenue forecasting because RPM is calculated per thousand pageviews, not sessions. However, track sessions for Mediavine qualification (requires 50,000 sessions, not pageviews). Maintain both metrics; use pageviews for revenue calculations and sessions for network threshold tracking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I update forecasts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Monthly updates using actual results from the previous month. Recalibrate assumptions quarterly if forecast errors exceed ±15% consistently. Annual full model review to assess whether seasonal patterns, growth rates, or network performance has structurally shifted from original assumptions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the same model for affiliate revenue forecasting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Affiliate revenue has different dynamics — it&#39;s driven by conversion rates and commission values rather than RPMs. However, the same general framework applies: model traffic separately, model conversion/commission separately, multiply together. Affiliate forecasting requires tracking conversion rate seasonality (often inverted from ad revenue — Q4 is strong, but Q1 can also be strong for &quot;new year&quot; purchases) and commission structure changes (Amazon rate cuts, program terms modifications)."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+
+
+  <nav class="mega-nav" role="navigation" aria-label="Main navigation">
+    <div class="mega-nav__inner">
+      <!-- Logo -->
+      <a href="/" class="mega-nav__logo" aria-label="Organic Arbitrage home">
+        <span class="mega-nav__monogram">OA</span>
+        <span class="mega-nav__site-name">Organic Arbitrage</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="mega-nav__links">
+
+        <!-- Strategies dropdown -->
+        <div class="mega-nav__item" data-mega="strategies">
+          <button class="mega-nav__trigger" aria-expanded="false" aria-controls="mega-strategies">
+            Strategies
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+        </div>
+
+        <!-- Tools dropdown -->
+        <div class="mega-nav__item" data-mega="tools">
+          <button class="mega-nav__trigger" aria-expanded="false" aria-controls="mega-tools">
+            Tools
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+        </div>
+
+        <!-- Economics (direct) -->
+        <a href="/economics" class="mega-nav__link">Economics</a>
+
+        <!-- Case Studies (direct) -->
+        <a href="/case-studies" class="mega-nav__link">Case Studies</a>
+
+        <span class="mega-nav__divider"></span>
+
+        <!-- CTA -->
+        <a href="/setup" class="mega-nav__cta">Learn the System &mdash; $1,997</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="mega-nav__mobile-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <svg id="nav-icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <svg id="nav-icon-close" style="display:none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- ═══ MEGA PANEL: Strategies ═══ -->
+    <div id="mega-strategies" class="mega-panel" role="region" aria-label="Strategies submenu">
+      <div class="mega-panel__inner">
+        <div>
+          <div class="mega-panel__column-title">Acquisition Plays</div>
+          <a href="/articles/expired-domain-seo-strategy" class="mega-panel__link">Expired Domain Hunting</a>
+          <a href="/articles/seo-traffic-valuation-models" class="mega-panel__link">Traffic Valuation</a>
+          <a href="/articles/flip-seo-site" class="mega-panel__link">Domain Flipping</a>
+          <a href="/articles/link-building-roi-analysis" class="mega-panel__link">Link Arbitrage</a>
+        </div>
+        <div>
+          <div class="mega-panel__column-title">Operational Models</div>
+          <a href="/articles/seo-portfolio-management" class="mega-panel__link">Portfolio Management</a>
+          <a href="/articles/programmatic-seo-roi-calculator" class="mega-panel__link">Programmatic SEO</a>
+          <a href="/articles/parasite-seo-economics" class="mega-panel__link">Parasite SEO Economics</a>
+          <a href="/articles/serp-volatility-trading" class="mega-panel__link">SERP Volatility Trading</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ MEGA PANEL: Tools ═══ -->
+    <div id="mega-tools" class="mega-panel" role="region" aria-label="Tools submenu">
+      <div class="mega-panel__inner">
+        <div>
+          <div class="mega-panel__column-title">Calculators</div>
+          <a href="/articles/programmatic-seo-roi-calculator" class="mega-panel__link">ROI Calculator</a>
+          <a href="/articles/seo-traffic-valuation-models" class="mega-panel__link">Traffic Valuation Model</a>
+          <a href="/articles/seo-content-production-economics" class="mega-panel__link">Content Economics</a>
+          <a href="/articles/niche-site-monetization-architecture" class="mega-panel__link">Monetization Planner</a>
+        </div>
+        <div>
+          <div class="mega-panel__column-title">Analysis</div>
+          <a href="/articles/link-building-roi-analysis" class="mega-panel__link">Backlink ROI Analyzer</a>
+          <a href="/articles/serp-volatility-trading" class="mega-panel__link">SERP Volatility Tracker</a>
+          <a href="/articles/expired-domain-seo-strategy" class="mega-panel__link">Domain Appraisal Guide</a>
+          <a href="/articles/seo-portfolio-management" class="mega-panel__link">Portfolio Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ MOBILE MENU ═══ -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <div class="mobile-menu__section">
+        <div class="mobile-menu__label">Strategies</div>
+        <a href="/articles/expired-domain-seo-strategy" class="mobile-menu__link">Expired Domain Hunting</a>
+        <a href="/articles/seo-traffic-valuation-models" class="mobile-menu__link">Traffic Valuation</a>
+        <a href="/articles/flip-seo-site" class="mobile-menu__link">Domain Flipping</a>
+        <a href="/articles/link-building-roi-analysis" class="mobile-menu__link">Link Arbitrage</a>
+        <a href="/articles/seo-portfolio-management" class="mobile-menu__link">Portfolio Management</a>
+        <a href="/articles/programmatic-seo-roi-calculator" class="mobile-menu__link">Programmatic SEO</a>
+        <a href="/articles/parasite-seo-economics" class="mobile-menu__link">Parasite SEO Economics</a>
+        <a href="/articles/serp-volatility-trading" class="mobile-menu__link">SERP Volatility Trading</a>
+      </div>
+      <div class="mobile-menu__section">
+        <div class="mobile-menu__label">Tools</div>
+        <a href="/articles/programmatic-seo-roi-calculator" class="mobile-menu__link">ROI Calculator</a>
+        <a href="/articles/seo-traffic-valuation-models" class="mobile-menu__link">Traffic Valuation Model</a>
+        <a href="/articles/seo-content-production-economics" class="mobile-menu__link">Content Economics</a>
+        <a href="/articles/niche-site-monetization-architecture" class="mobile-menu__link">Monetization Planner</a>
+      </div>
+      <div class="mobile-menu__section">
+        <a href="/economics" class="mobile-menu__link">Economics</a>
+        <a href="/case-studies" class="mobile-menu__link">Case Studies</a>
+      </div>
+      <a href="/setup" class="mobile-menu__cta">Learn the System &mdash; $1,997</a>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <header class="hero hero--article">
+    <div class="container">
+      <div class="breadcrumbs" style="color:#8a8279">
+        <a href="/" style="color:#8a8279">Home</a>
+        <span class="breadcrumbs__sep">/</span>
+        <a href="/articles" style="color:#8a8279">Articles</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current" style="color:var(--oa-gold)">Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks</span>
+      </div>
+      <h1 class="hero__title">Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks</h1>
+      <p class="hero__subtitle">Build financial models that predict display ad revenue across Mediavine,AdThrive,and Ezoic with seasonal RPM fluctuations and traffic projections.</p>
+      <div style="margin-top:var(--space-lg);font-size:var(--text-sm);color:var(--oa-muted)">
+        <span>2026-02-07</span> &middot;
+        <span>Victor Valentine Romo</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="section">
+    <div class="container container--narrow">
+      <article class="prose">
+        <h1 id="ad-revenue-forecasting-spreadsheet-modeling-rpm-changes-across-ad-networks">Ad Revenue Forecasting Spreadsheet — Modeling RPM Changes Across Ad Networks</h1>
+<p>Display ad revenue forecasting requires modeling two independent variables simultaneously: traffic volume and RPM (revenue per thousand pageviews). Both fluctuate seasonally, respond to market conditions, and vary across ad networks. A spreadsheet model that captures these dynamics transforms guesswork into actionable financial projections, enabling operators to value acquisition targets accurately, plan cash flow, and identify monetization optimization opportunities.</p>
+<p>The forecasting framework detailed here produces month-by-month revenue projections with confidence intervals, accounting for seasonal RPM patterns, traffic growth curves, and ad network performance characteristics. This approach reveals when switching ad networks captures material revenue gains and whether traffic growth or RPM optimization delivers higher ROI for a given content portfolio.</p>
+<h2 id="core-forecasting-model-architecture">Core Forecasting Model Architecture</h2>
+<p>Effective ad revenue forecasting separates traffic projection from RPM projection, models each independently, then multiplies them together with network-specific adjustment factors.</p>
+<h3 id="traffic-volume-projection-framework">Traffic Volume Projection Framework</h3>
+<p>Traffic forecasting starts with historical baseline and applies growth rate assumptions constrained by niche maturity and competitive intensity.</p>
+<p><strong>Historical traffic baseline calculation:</strong>
+Pull monthly pageviews from <strong>Google Analytics</strong> for the trailing twelve months. Calculate the median (not average) monthly pageviews to establish baseline. Median resists distortion from traffic spikes caused by viral content or seasonal anomalies.</p>
+<p><strong>Seasonal index calculation:</strong>
+For each month, divide actual pageviews by baseline median. This produces seasonal index values showing how each month performs relative to typical. January might show 1.15 (15% above baseline), July might show 0.87 (13% below baseline).</p>
+<p><strong>Growth rate assumptions:</strong>
+Apply different growth rates based on content site maturity:</p>
+<ul>
+<li>New sites (0-12 months): 8-15% monthly compounding growth if actively publishing</li>
+<li>Growth sites (12-36 months): 3-6% monthly growth as they approach traffic ceiling</li>
+<li>Mature sites (36+ months): 0-2% monthly growth, mostly from content updates</li>
+<li>Declining sites: -1% to -3% monthly as content ages and competitors encroach</li>
+</ul>
+<p><strong>Projected traffic formula:</strong>
+<code>Projected Traffic (Month N) = Baseline × Seasonal Index (Month N) × (1 + Growth Rate)^N</code></p>
+<p>This formula compounds growth over time while preserving seasonal patterns. A site with 100,000 baseline pageviews, January seasonal index of 1.15, and 4% monthly growth projects: <code>100,000 × 1.15 × 1.04^1 = 119,600</code> pageviews for January (month 1).</p>
+<h3 id="rpm-projection-across-seasonal-cycles">RPM Projection Across Seasonal Cycles</h3>
+<p>RPM varies more dramatically than traffic across seasons. Q4 (October-December) RPMs run 35-60% higher than Q1-Q2 baseline for most niches as advertiser demand peaks for holiday shopping.</p>
+<p><strong>Network-specific RPM baselines:</strong></p>
+<p><strong>Mediavine:</strong> $18-28 RPM baseline depending on niche. Finance and B2B SaaS achieve $25-35 RPM. Lifestyle and entertainment sit at $15-22 RPM. Calculate baseline by averaging RPMs from March-May (least seasonal months).</p>
+<p><strong>AdThrive:</strong> $22-35 RPM baseline with similar niche variation. Premium niches (finance, insurance, legal) achieve $30-45 RPM. General content niches run $20-28 RPM.</p>
+<p><strong>Ezoic:</strong> $12-22 RPM baseline for sites with comparable traffic. <strong>Ezoic</strong> performance varies more by traffic volume than network — sites under 50,000 pageviews monthly see $10-15 RPM; sites above 250,000 pageviews see $18-25 RPM due to better ad fill rates.</p>
+<p><strong>Seasonal RPM multipliers:</strong>
+Create multiplier table for each month based on historical network performance:</p>
+<div class="data-table-wrap"><table class="data-table"><thead><tr><th>Month</th><th>Multiplier</th><th>Rationale</th></tr></thead><tbody><tr><td>January</td><td>0.85</td><td>Post-holiday advertiser budget exhaustion</td></tr><tr><td>February</td><td>0.90</td><td>Continued Q1 weakness</td></tr><tr><td>March</td><td>0.95</td><td>Recovery begins</td></tr><tr><td>April-June</td><td>1.00</td><td>Baseline period</td></tr><tr><td>July-August</td><td>0.92</td><td>Summer advertising slowdown</td></tr><tr><td>September</td><td>1.05</td><td>Back-to-school and Q4 ramp</td></tr><tr><td>October</td><td>1.25</td><td>Early holiday shopping</td></tr><tr><td>November</td><td>1.45</td><td>Black Friday/Cyber Monday peak</td></tr><tr><td>December</td><td>1.35</td><td>Holiday shopping, tapers end-of-month</td></tr></tbody></table></div>
+<p>These multipliers reflect aggregate patterns across niches. Individual niches deviate — tax preparation content peaks in Q1, not Q4; fitness content peaks January-February.</p>
+<p><strong>Projected RPM formula:</strong>
+<code>Projected RPM (Month N) = Baseline RPM × Seasonal Multiplier (Month N) × Network Quality Factor</code></p>
+<p>Network quality factor accounts for ongoing optimization. Sites that actively test ad placements, implement video ads, and optimize viewability see 5-10% annual RPM growth independent of seasonality. Apply 1.005-1.008 monthly multiplier to baseline RPM for actively optimized sites.</p>
+<p>The <a href="niche-site-monetization-architecture.html">niche site monetization architecture</a> framework details RPM optimization strategies across monetization models.</p>
+<h3 id="revenue-calculation-with-confidence-intervals">Revenue Calculation with Confidence Intervals</h3>
+<p>Multiply projected traffic by projected RPM, divide by 1,000 (because RPM is per thousand views), then apply confidence intervals to account for forecasting uncertainty.</p>
+<p><strong>Point estimate revenue:</strong>
+<code>Revenue = (Projected Pageviews × Projected RPM) / 1,000</code></p>
+<p><strong>Confidence interval bounds:</strong>
+Model uncertainty by calculating pessimistic and optimistic scenarios:</p>
+<ul>
+<li><strong>Pessimistic (20th percentile):</strong> Reduce traffic growth rate by 50%, reduce RPM by 10%</li>
+<li><strong>Base case (50th percentile):</strong> Use median projections</li>
+<li><strong>Optimistic (80th percentile):</strong> Increase traffic growth rate by 25%, increase RPM by 8%</li>
+</ul>
+<p>This produces a revenue range. For example, a site projecting $4,500 base case revenue in month 6 might show $3,600 pessimistic and $5,200 optimistic. Operators use pessimistic projections for conservative financial planning and optimistic projections for upside scenario analysis.</p>
+<h2 id="network-specific-modeling-considerations">Network-Specific Modeling Considerations</h2>
+<p>Each major ad network has distinct characteristics that require model adjustments beyond simple RPM differences.</p>
+<h3 id="mediavine-revenue-modeling">Mediavine Revenue Modeling</h3>
+<p><strong>Mediavine</strong> requires 50,000 sessions monthly for entry, creating a threshold effect in forecasting models. Sites approaching the 50,000 threshold should model revenue under current monetization (likely <strong>Google AdSense</strong> or <strong>Ezoic</strong>) until threshold is reached, then switch to <strong>Mediavine</strong> RPM projections.</p>
+<p><strong>RPM ramp period:</strong> <strong>Mediavine</strong> RPMs don&#39;t reach full potential immediately. New publishers see 70-85% of mature publisher RPMs during months 1-3 as <strong>Mediavine</strong> optimizes ad layouts and builds advertiser history. Model a ramp factor:</p>
+<ul>
+<li>Month 1: Baseline RPM × 0.75</li>
+<li>Month 2: Baseline RPM × 0.85</li>
+<li>Month 3+: Full baseline RPM</li>
+</ul>
+<p><strong>Video revenue component:</strong> Sites with video content earn incremental revenue from video ads. <strong>Mediavine</strong> video RPMs run $40-80 per thousand video views. Model video separately if videos represent meaningful content percentage:</p>
+<p><code>Video Revenue = (Video Views / 1,000) × Video RPM</code></p>
+<p>Add this to standard display ad revenue for total <strong>Mediavine</strong> earnings.</p>
+<p>The <a href="display-ad-rpm-by-niche.html">display ad RPM by niche</a> analysis provides niche-specific <strong>Mediavine</strong> benchmarks for baseline calibration.</p>
+<h3 id="adthrive-performance-projection">AdThrive Performance Projection</h3>
+<p><strong>AdThrive</strong> maintains higher RPMs than <strong>Mediavine</strong> but requires 100,000 pageviews monthly, doubling the entry threshold. Model the opportunity cost of waiting for <strong>AdThrive</strong> qualification versus accepting <strong>Mediavine</strong> immediately.</p>
+<p><strong>Opportunity cost calculation:</strong>
+If a site generates 60,000 monthly pageviews with <strong>Mediavine</strong> at $24 RPM ($1,440/month) but would earn $30 RPM with <strong>AdThrive</strong> ($1,800/month), the monthly opportunity cost is $360. However, growing from 60,000 to 100,000 pageviews might take 6 months at 8% monthly growth. During those 6 months, <strong>Mediavine</strong> generates $8,640 total revenue vs. $0 from waiting for <strong>AdThrive</strong>. The $360/month premium doesn&#39;t justify deferring monetization.</p>
+<p><strong>AdThrive premium sustainability:</strong> <strong>AdThrive</strong> RPM advantage over <strong>Mediavine</strong> ranges from 15-35% depending on niche. Finance and B2B niches see larger <strong>AdThrive</strong> premiums (25-35%) while lifestyle and entertainment see smaller premiums (15-20%). Model premium decay over time — as <strong>Mediavine</strong> optimizes layouts and ad tech improves, the <strong>AdThrive</strong> advantage compresses.</p>
+<p>Project <strong>AdThrive</strong> premium declining 2-3% annually:</p>
+<ul>
+<li>Year 1: 30% premium over <strong>Mediavine</strong></li>
+<li>Year 2: 27% premium</li>
+<li>Year 3: 24% premium</li>
+</ul>
+<p>This decay reflects market competition reducing differentiation between premium ad networks.</p>
+<h3 id="ezoic-optimization-curve-modeling">Ezoic Optimization Curve Modeling</h3>
+<p><strong>Ezoic</strong> uses machine learning to test ad configurations, producing RPM improvement over time as the system learns optimal layouts for each visitor segment. Unlike <strong>Mediavine</strong> or <strong>AdThrive</strong> where RPM is relatively stable month-over-month, <strong>Ezoic</strong> RPM improves materially during the first 6-12 months.</p>
+<p><strong>Ezoic learning curve:</strong></p>
+<ul>
+<li>Month 1: Baseline RPM × 0.65 (initial testing phase with suboptimal configs)</li>
+<li>Months 2-3: Baseline RPM × 0.80 (rapid learning)</li>
+<li>Months 4-6: Baseline RPM × 0.90 (approaching optimization)</li>
+<li>Months 7-12: Baseline RPM × 0.95-1.05 (mature optimization)</li>
+<li>Month 13+: Baseline RPM × 1.00 (fully optimized)</li>
+</ul>
+<p><strong>Traffic tier effects:</strong> <strong>Ezoic</strong> RPM correlates strongly with traffic volume because higher traffic provides more data for machine learning optimization. Model RPM tiers:</p>
+<ul>
+<li>Under 25,000 monthly pageviews: $10-14 RPM</li>
+<li>25,000-100,000 pageviews: $14-18 RPM</li>
+<li>100,000-250,000 pageviews: $18-22 RPM</li>
+<li>250,000+ pageviews: $22-28 RPM</li>
+</ul>
+<p>As site traffic grows through tiers, adjust baseline RPM upward to reflect <strong>Ezoic</strong>&#39;s improved performance at scale.</p>
+<h2 id="advanced-forecasting-scenarios">Advanced Forecasting Scenarios</h2>
+<p>Basic models project single sites under current conditions. Advanced scenarios model portfolio effects, network switches, and traffic optimization interventions.</p>
+<h3 id="multi-site-portfolio-revenue-aggregation">Multi-Site Portfolio Revenue Aggregation</h3>
+<p>Operators managing multiple sites need consolidated revenue projections accounting for different monetization stages, niches, and seasonal patterns across properties.</p>
+<p><strong>Portfolio model structure:</strong>
+Create separate forecast tabs for each site, then aggregate into master dashboard showing:</p>
+<ul>
+<li>Total monthly revenue across portfolio</li>
+<li>Revenue contribution by site (which properties drive total)</li>
+<li>Diversification metrics (how much revenue depends on single sites)</li>
+<li>Seasonal concentration (what percentage of annual revenue occurs in Q4)</li>
+</ul>
+<p><strong>Correlation adjustments:</strong> If multiple portfolio sites operate in the same niche with similar seasonal patterns, they&#39;re correlated. A downturn affecting one likely affects all. Apply correlation discount factor to portfolio volatility calculations:</p>
+<p><code>Portfolio Revenue Volatility = √(Σ Individual Site Variance × Correlation Matrix)</code></p>
+<p>Uncorrelated sites (finance, health, entertainment across different traffic sources) have near-zero correlation. Sites in identical niches with identical ad networks have 0.8-0.95 correlation, meaning they move together.</p>
+<p>The <a href="seo-portfolio-management.html">SEO portfolio management</a> framework extends portfolio theory to content site operations.</p>
+<h3 id="network-switch-revenue-impact-modeling">Network Switch Revenue Impact Modeling</h3>
+<p>Switching from <strong>Google AdSense</strong> to <strong>Mediavine</strong> or <strong>Ezoic</strong> to <strong>AdThrive</strong> creates transition periods where RPM changes, sometimes with initial volatility.</p>
+<p><strong>Network switch model components:</strong></p>
+<ol>
+<li><strong>Pre-switch baseline:</strong> Current network RPM × current traffic</li>
+<li><strong>Transition gap:</strong> 7-14 days of reduced revenue during technical setup (model as 50% revenue for 2 weeks)</li>
+<li><strong>New network ramp:</strong> Months 1-3 at reduced RPM while new network optimizes</li>
+<li><strong>Mature state:</strong> Full new network RPM from month 4 forward</li>
+</ol>
+<p><strong>Break-even analysis:</strong> Calculate how many months until cumulative revenue under new network exceeds cumulative revenue if staying with old network:</p>
+<p><code>Break-Even Month = (Transition Costs + Ramp Deficit) / (New Network Monthly Premium - Old Network Monthly Revenue)</code></p>
+<p>If <strong>Mediavine</strong> generates $2,000/month vs. <strong>AdSense</strong> $800/month, the monthly premium is $1,200. If transition costs $500 and ramp deficit totals $1,500 (reduced revenue during months 1-3), break-even occurs in month 2.7: <code>($500 + $1,500) / $1,200 = 1.67 months</code>.</p>
+<h3 id="content-production-roi-with-revenue-forecasting">Content Production ROI with Revenue Forecasting</h3>
+<p>Content production costs money. Revenue forecasting determines whether content investment generates positive ROI.</p>
+<p><strong>Content ROI model:</strong>
+For each proposed article:</p>
+<ol>
+<li><strong>Production cost:</strong> Writer fee + editor fee + images = $300</li>
+<li><strong>Traffic projection:</strong> Expected monthly organic visitors in months 3-12 after publication (use historical data from similar articles)</li>
+<li><strong>Revenue per visitor:</strong> Site RPM × average pageviews per visitor</li>
+<li><strong>Monthly revenue:</strong> Projected visitors × revenue per visitor</li>
+<li><strong>Cumulative revenue (12 months):</strong> Sum of months 3-12 revenue</li>
+<li><strong>ROI:</strong> (Cumulative Revenue - Production Cost) / Production Cost</li>
+</ol>
+<p>An article costing $300 that generates 800 monthly visitors at $25 RPM and 1.3 pages per visitor produces: <code>(800 × 1.3 × $25 / 1,000) × 10 months = $260</code> cumulative revenue. ROI is -13% — don&#39;t publish it.</p>
+<p>An article costing $300 that generates 2,500 monthly visitors produces: <code>(2,500 × 1.3 × $25 / 1,000) × 10 months = $812</code> cumulative revenue. ROI is +171% — definitely publish.</p>
+<p>The <a href="content-roi-calculator.html">content ROI calculator</a> tool automates this analysis for content planning workflows.</p>
+<h2 id="building-the-spreadsheet-model">Building the Spreadsheet Model</h2>
+<p>Conceptual frameworks require implementation. Here&#39;s the practical spreadsheet architecture for forecasting display ad revenue.</p>
+<h3 id="sheet-structure-and-data-flow">Sheet Structure and Data Flow</h3>
+<p><strong>Sheet 1: Historical Data</strong></p>
+<ul>
+<li>Column A: Month</li>
+<li>Column B: Pageviews</li>
+<li>Column C: RPM</li>
+<li>Column D: Revenue</li>
+<li>Rows: Trailing 12-24 months of actual data from <strong>Google Analytics</strong> and ad network dashboards</li>
+</ul>
+<p><strong>Sheet 2: Assumptions</strong></p>
+<ul>
+<li>Baseline pageviews (median from historical data)</li>
+<li>Seasonal index by month (calculated from historical data)</li>
+<li>Baseline RPM by network</li>
+<li>RPM seasonal multipliers</li>
+<li>Traffic growth rate assumptions</li>
+<li>Network quality improvement factor</li>
+</ul>
+<p><strong>Sheet 3: Traffic Forecast</strong></p>
+<ul>
+<li>Column A: Month (future months 1-24)</li>
+<li>Column B: Seasonal index (lookup from assumptions)</li>
+<li>Column C: Growth factor (compounding growth rate)</li>
+<li>Column D: Projected pageviews (baseline × seasonal × growth)</li>
+</ul>
+<p><strong>Sheet 4: RPM Forecast</strong></p>
+<ul>
+<li>Column A: Month</li>
+<li>Column B: Seasonal multiplier (lookup from assumptions)</li>
+<li>Column C: Optimization factor (network quality improvement)</li>
+<li>Column D: Projected RPM (baseline × seasonal × optimization)</li>
+</ul>
+<p><strong>Sheet 5: Revenue Forecast</strong></p>
+<ul>
+<li>Column A: Month</li>
+<li>Column B: Projected pageviews (from traffic forecast)</li>
+<li>Column C: Projected RPM (from RPM forecast)</li>
+<li>Column D: Projected revenue <code>(B × C) / 1,000</code></li>
+<li>Column E: Pessimistic revenue</li>
+<li>Column F: Optimistic revenue</li>
+</ul>
+<p><strong>Sheet 6: Scenarios</strong></p>
+<ul>
+<li>Rows for different scenarios (current network, switch to <strong>Mediavine</strong>, switch to <strong>AdThrive</strong>)</li>
+<li>Each scenario pulls from assumptions sheet with different baseline RPMs</li>
+<li>Enables side-by-side comparison of network switching decisions</li>
+</ul>
+<h3 id="formula-patterns-and-automation">Formula Patterns and Automation</h3>
+<p><strong>Traffic growth compounding formula:</strong>
+<code>=Baseline * INDEX(SeasonalIndexTable, MONTH(A2)) * (1 + GrowthRate)^ROWS($A$2:A2)</code></p>
+<p>This formula compounds growth over each successive month while applying the correct seasonal index.</p>
+<p><strong>RPM with seasonality and optimization:</strong>
+<code>=BaselineRPM * INDEX(RPMMultiplierTable, MONTH(A2)) * (1 + OptimizationRate)^ROWS($A$2:A2)</code></p>
+<p>Similar structure but optimizes RPM over time rather than just growing traffic.</p>
+<p><strong>Confidence interval calculations:</strong>
+Pessimistic: <code>=Revenue * 0.80</code>
+Optimistic: <code>=Revenue * 1.15</code></p>
+<p>These percentages derive from historical forecast accuracy — if your forecasts typically range 80-115% of actual, use those bounds.</p>
+<h3 id="validation-and-calibration">Validation and Calibration</h3>
+<p>After building the model, validate projections against actual results monthly. Calculate forecast error:</p>
+<p><code>Forecast Error = (Actual Revenue - Projected Revenue) / Projected Revenue</code></p>
+<p>If forecast errors consistently exceed ±15%, recalibrate assumptions:</p>
+<ul>
+<li><strong>Overestimating traffic growth?</strong> Reduce growth rate assumption</li>
+<li><strong>Underestimating RPM seasonality?</strong> Increase Q4 multipliers</li>
+<li><strong>Not accounting for traffic quality changes?</strong> Add traffic source composition to model</li>
+</ul>
+<p>Forecasting improves through iteration. Initial models have 20-30% error rates. After 6 months of calibration, well-maintained models achieve 10-15% error rates — acceptable for financial planning purposes.</p>
+<h2 id="practical-applications-for-acquisition-and-operations">Practical Applications for Acquisition and Operations</h2>
+<p>Revenue forecasting drives acquisition pricing, cash flow management, and strategic decisions about network selection and content investment.</p>
+<h3 id="acquisition-due-diligence-revenue-verification">Acquisition Due Diligence Revenue Verification</h3>
+<p>Sellers present trailing twelve-month revenue when listing sites for sale. Forecasting models verify whether claimed revenue is sustainable or inflated.</p>
+<p><strong>Red flags in seller data:</strong></p>
+<ul>
+<li>Revenue growing faster than traffic (suggests RPM inflation from temporary factors)</li>
+<li>Q4 revenue representing 45%+ of annual revenue (extreme seasonal concentration)</li>
+<li>RPM exceeding network benchmarks by 30%+ (potential data manipulation)</li>
+</ul>
+<p>Build a forecast using the seller&#39;s traffic data but industry-standard RPMs for their niche and network. If your model projects $48,000 annual revenue but the seller claims $72,000, investigate the discrepancy. Either the seller has exceptional optimization (get details to verify) or they&#39;re misrepresenting revenue.</p>
+<p>The <a href="content-roi-calculator.html">content ROI calculator</a> framework extends this verification to content-level revenue attribution.</p>
+<h3 id="cash-flow-planning-for-portfolio-operations">Cash Flow Planning for Portfolio Operations</h3>
+<p>Seasonal RPM swings create cash flow volatility. Sites generating $6,000/month in November might generate $3,800 in February. Portfolio operators need 3-4 months of operating expenses in reserves to smooth seasonal troughs.</p>
+<p><strong>Cash reserve calculation:</strong>
+Model worst-case scenario where Q1 revenue drops 30% below annual average and traffic growth stalls at 0%. Calculate the cumulative cash shortfall during January-March:</p>
+<p><code>Required Reserves = Operating Expenses × 3 - Pessimistic Q1 Revenue</code></p>
+<p>If monthly operating expenses are $8,000 and pessimistic Q1 revenue is $15,000, required reserves are: <code>$24,000 - $15,000 = $9,000</code>.</p>
+<p>Operators carrying less than this reserve risk cash crunches requiring emergency content cuts or delaying vendor payments — both damage long-term site quality.</p>
+<h3 id="network-selection-optimization">Network Selection Optimization</h3>
+<p>When sites reach traffic thresholds for premium networks, forecasting determines optimal timing for switches.</p>
+<p><strong>Decision framework:</strong></p>
+<ol>
+<li>Project revenue under current network for 12 months</li>
+<li>Project revenue under target network accounting for transition costs and ramp period</li>
+<li>Calculate net present value of both scenarios using 10-15% discount rate</li>
+<li>Select the option with higher NPV</li>
+</ol>
+<p>If NPV difference is under 5%, default to staying with current network to avoid transition risk and maintain operational simplicity.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-39-s-the-minimum-historical-data-needed-to-build-reliable-forecasts">What&#39;s the minimum historical data needed to build reliable forecasts?</h3>
+<p>Twelve months minimum to capture full seasonal cycles. Eighteen to twenty-four months ideal for stable trend identification. Sites with under 12 months of revenue history should use industry benchmarks from comparable sites rather than exclusively relying on their limited historical data.</p>
+<h3 id="how-do-i-model-rpm-for-a-site-not-yet-on-mediavine-or-adthrive">How do I model RPM for a site not yet on Mediavine or AdThrive?</h3>
+<p>Use industry benchmarks for similar niches and traffic volumes from the <a href="display-ad-rpm-by-niche.html">display ad RPM by niche</a> database. Conservative approach: assume 20th percentile RPM from benchmark range. Optimistic approach: assume 50th percentile. Don&#39;t use 80th percentile unless the site has specific advantages (extremely engaged audience, perfect UX, high pages per session) that justify top-tier performance.</p>
+<h3 id="should-i-forecast-pageviews-or-sessions">Should I forecast pageviews or sessions?</h3>
+<p>Pageviews for display ad revenue forecasting because RPM is calculated per thousand pageviews, not sessions. However, track sessions for <strong>Mediavine</strong> qualification (requires 50,000 sessions, not pageviews). Maintain both metrics; use pageviews for revenue calculations and sessions for network threshold tracking.</p>
+<h3 id="how-often-should-i-update-forecasts">How often should I update forecasts?</h3>
+<p>Monthly updates using actual results from the previous month. Recalibrate assumptions quarterly if forecast errors exceed ±15% consistently. Annual full model review to assess whether seasonal patterns, growth rates, or network performance has structurally shifted from original assumptions.</p>
+<h3 id="can-i-use-the-same-model-for-affiliate-revenue-forecasting">Can I use the same model for affiliate revenue forecasting?</h3>
+<p>Affiliate revenue has different dynamics — it&#39;s driven by conversion rates and commission values rather than RPMs. However, the same general framework applies: model traffic separately, model conversion/commission separately, multiply together. Affiliate forecasting requires tracking conversion rate seasonality (often inverted from ad revenue — Q4 is strong, but Q1 can also be strong for &quot;new year&quot; purchases) and commission structure changes (Amazon rate cuts, program terms modifications).</p>
+
+      </article>
+
+      
+  <div class="author-card">
+    <div class="author-card__avatar">VR</div>
+    <div>
+      <div class="author-card__name">Victor Valentine Romo</div>
+      <div class="author-card__role">Founder, Scale With Search</div>
+      <div class="author-card__bio">Runs a portfolio of organic traffic assets. 4+ years testing expired domain plays, programmatic content models, and SERP arbitrage strategies. Documents the wins and losses with full P&L transparency.</div>
+    </div>
+  </div>
+
+      
+  <div class="cta-box mt-3xl">
+    <div class="cta-box__label">The Complete System</div>
+    <div class="cta-box__title">Stop Reading Playbooks. Run the Plays.</div>
+    <div class="cta-box__text">Know gives you the valuation models, deal calculators, acquisition checklists, and portfolio frameworks used to generate consistent returns from organic search gaps.</div>
+    <div class="cta-box__price">$1,997 <span>one-time</span></div>
+    <a href="/setup" class="btn btn--primary btn--lg">Get Know</a>
+  </div>
+
+      
+
+      <div style="margin-top:var(--space-3xl);padding-top:var(--space-xl);border-top:1px solid var(--oa-border)">
+        <a href="/articles" style="font-weight:500">&larr; All Articles</a>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <!-- Column 1: About -->
+        <div>
+          <a href="/" class="mega-nav__logo" style="margin-bottom:var(--space-md);display:inline-flex">
+            <span class="mega-nav__monogram">OA</span>
+            <span class="mega-nav__site-name" style="color:var(--oa-base)">Organic Arbitrage</span>
+          </a>
+          <p class="site-footer__brand-desc">SEO treated as arbitrage, not marketing. Frameworks for finding undervalued traffic, calculating real acquisition costs, and monetizing at multiples above spend. Built for operators who think in spreads.</p>
+        </div>
+
+        <!-- Column 2: Popular Strategies -->
+        <div>
+          <div class="site-footer__col-title">Popular Strategies</div>
+          <a href="/articles/expired-domain-seo-strategy" class="site-footer__link">Expired Domain Hunting</a>
+          <a href="/articles/seo-traffic-valuation-models" class="site-footer__link">Traffic Valuation Models</a>
+          <a href="/articles/flip-seo-site" class="site-footer__link">Site Flipping Framework</a>
+          <a href="/articles/link-building-roi-analysis" class="site-footer__link">Link Building ROI</a>
+          <a href="/articles/seo-portfolio-management" class="site-footer__link">Portfolio Management</a>
+          <a href="/articles/programmatic-seo-roi-calculator" class="site-footer__link">Programmatic SEO ROI</a>
+          <a href="/articles/parasite-seo-economics" class="site-footer__link">Parasite SEO Economics</a>
+          <a href="/articles/serp-volatility-trading" class="site-footer__link">SERP Volatility Trading</a>
+        </div>
+
+        <!-- Column 3: Tools & Resources -->
+        <div>
+          <div class="site-footer__col-title">Tools &amp; Resources</div>
+          <a href="/articles/programmatic-seo-roi-calculator" class="site-footer__link">ROI Calculator</a>
+          <a href="/articles/seo-traffic-valuation-models" class="site-footer__link">Traffic Valuation Model</a>
+          <a href="/articles/seo-content-production-economics" class="site-footer__link">Content Production Economics</a>
+          <a href="/articles/niche-site-monetization-architecture" class="site-footer__link">Monetization Architecture</a>
+          <a href="/articles/link-building-roi-analysis" class="site-footer__link">Backlink ROI Analyzer</a>
+          <a href="/articles/serp-volatility-trading" class="site-footer__link">SERP Volatility Tracker</a>
+          <a href="/articles/expired-domain-seo-strategy" class="site-footer__link">Domain Appraisal Guide</a>
+          <a href="/setup" class="site-footer__link" style="color:var(--oa-gold);font-weight:500">Know &mdash; $1,997</a>
+        </div>
+
+        <!-- Column 4: From Scale With Search -->
+        <div>
+          <div class="site-footer__col-title">From Scale With Search</div>
+          <a href="https://scalewithsearch.com" class="site-footer__entity-link">scalewithsearch.com</a>
+          <a href="https://victorvalentineromo.com" class="site-footer__entity-link">victorvalentineromo.com</a>
+          <a href="https://aifirstsearch.com" class="site-footer__entity-link">aifirstsearch.com</a>
+          <a href="https://browserprompt.com" class="site-footer__entity-link">browserprompt.com</a>
+          <a href="https://creatinepedia.com" class="site-footer__entity-link">creatinepedia.com</a>
+          <a href="https://polytraffic.com" class="site-footer__entity-link">polytraffic.com</a>
+          <a href="https://tattooremovalnear.com" class="site-footer__entity-link">tattooremovalnear.com</a>
+          <a href="https://comicstripai.com" class="site-footer__entity-link">comicstripai.com</a>
+          <a href="https://aipaypercrawl.com" class="site-footer__entity-link">aipaypercrawl.com</a>
+          <a href="https://b2bvic.com" class="site-footer__entity-link">b2bvic.com</a>
+          <a href="https://seobyrole.com" class="site-footer__entity-link">seobyrole.com</a>
+          <a href="https://quickfixseo.com" class="site-footer__entity-link">quickfixseo.com</a>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="site-footer__bottom">
+        <span>&copy; 2026 Organic Arbitrage. A <a href="https://scalewithsearch.com" style="color:var(--oa-gold)">Scale With Search</a> property.</span>
+        <div class="site-footer__bottom-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+  (function() {
+    // Mega dropdown toggles
+    var triggers = document.querySelectorAll('.mega-nav__trigger');
+    var panels = document.querySelectorAll('.mega-panel');
+
+    function closeAll() {
+      panels.forEach(function(p) { p.classList.remove('is-open'); });
+      triggers.forEach(function(t) { t.setAttribute('aria-expanded', 'false'); });
+    }
+
+    triggers.forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var panelId = trigger.getAttribute('aria-controls');
+        var panel = document.getElementById(panelId);
+        var isOpen = panel.classList.contains('is-open');
+
+        closeAll();
+
+        if (!isOpen) {
+          panel.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.mega-nav')) {
+        closeAll();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAll();
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) mobileMenu.classList.remove('is-open');
+      }
+    });
+
+    // Mobile menu
+    var mobileBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var iconOpen = document.getElementById('nav-icon-open');
+    var iconClose = document.getElementById('nav-icon-close');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.contains('is-open');
+        mobileMenu.classList.toggle('is-open');
+        mobileBtn.setAttribute('aria-expanded', !isOpen);
+        if (iconOpen && iconClose) {
+          iconOpen.style.display = isOpen ? '' : 'none';
+          iconClose.style.display = isOpen ? 'none' : '';
+        }
+      });
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var wasOpen = item.classList.contains('is-open');
+        // Close all siblings
+        item.parentElement.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('is-open');
+        });
+        if (!wasOpen) item.classList.add('is-open');
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>
