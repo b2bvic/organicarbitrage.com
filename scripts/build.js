@@ -1,300 +1,100 @@
+#!/usr/bin/env node
+
+/**
+ * Organic Arbitrage — Build Pipeline
+ *
+ * Orchestrates the full static site build:
+ *   1. Clean dist/
+ *   2. Copy static assets (base.css, robots.txt)
+ *   3. Process Articles/*.md → dist/articles/*.html
+ *   4. Build index.html (homepage)
+ *   5. Build category index pages
+ *   6. Build 404.html
+ *   7. Generate sitemap.xml
+ *   8. Copy root-level pages (setup.html, etc.)
+ */
+
 const fs = require('fs');
 const path = require('path');
 const { processArticles } = require('./md-to-html');
+const { generateIndexes } = require('./generate-indexes');
+const { generateSitemap } = require('./generate-sitemap');
+const {
+  megaNavHtml, footerHtml, headIncludes, megaNavScript,
+  organizationSchema, websiteSchema
+} = require('./shared');
 
-const DIST = path.join(__dirname, '..', 'dist');
+const ROOT = path.join(__dirname, '..');
+const DIST = path.join(ROOT, 'dist');
 
-const ENTITY_DOMAINS = [
-  'scalewithsearch.com',
-  'victorvalentineromo.com',
-  'aifirstsearch.com',
-  'browserprompt.com',
-  'creatinepedia.com',
-  'polytraffic.com',
-  'tattooremovalnear.com',
-  'comicstripai.com',
-  'organicarbitrage.com',
-  'aipaypercrawl.com',
-  'b2bvic.com',
-  'seobyrole.com',
-  'quickfixseo.com'
-];
+// ─── Clean ───────────────────────────────────────────────────────
 
-const SAME_AS = ENTITY_DOMAINS.map(d => `"https://${d}"`).join(',\n      ');
-const ENTITY_LINKS = ENTITY_DOMAINS.map(d => `    <link rel="me" href="https://${d}" />`).join('\n');
-
-// Clean dist
 function clean() {
   if (fs.existsSync(DIST)) {
     fs.rmSync(DIST, { recursive: true });
   }
   fs.mkdirSync(DIST, { recursive: true });
+  fs.mkdirSync(path.join(DIST, 'articles'), { recursive: true });
   console.log('Cleaned dist/');
 }
 
-// Build article cards for index
-function buildArticleCards(articles) {
-  return articles.map(a => `
-            <a href="/articles/${a.slug}.html" class="group block bg-white border border-gray-200 rounded-xl p-6 hover:border-emerald-400 hover:shadow-lg transition-all duration-200">
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors leading-snug">${a.title}</h3>
-                <p class="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-3">${a.description}</p>
-                <span class="inline-block mt-4 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Read article &rarr;</span>
-            </a>`).join('\n');
+// ─── Copy Static Assets ─────────────────────────────────────────
+
+function copyStatics() {
+  // base.css
+  const cssPath = path.join(ROOT, 'base.css');
+  if (fs.existsSync(cssPath)) {
+    fs.copyFileSync(cssPath, path.join(DIST, 'base.css'));
+    console.log('Copied: base.css');
+  }
+
+  // Root HTML pages (setup.html, etc.)
+  const rootPages = ['setup.html', 'privacy.html', 'terms.html'];
+  for (const page of rootPages) {
+    const src = path.join(ROOT, page);
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, path.join(DIST, page));
+      console.log(`Copied: ${page}`);
+    }
+  }
+
+  // Index page — will be built separately
+  const indexSrc = path.join(ROOT, 'index.html');
+  if (fs.existsSync(indexSrc)) {
+    fs.copyFileSync(indexSrc, path.join(DIST, 'index.html'));
+    console.log('Copied: index.html');
+  }
 }
 
-// Index page
-function buildIndex(articles) {
-  const cards = buildArticleCards(articles);
-  const jsonLd = JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "name": "Organic Arbitrage",
-        "url": "https://organicarbitrage.com",
-        "description": "Profit from organic search gaps. Frameworks for acquiring, valuing, and monetizing undervalued organic traffic.",
-        "publisher": { "@id": "https://organicarbitrage.com/#organization" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://organicarbitrage.com/#organization",
-        "name": "Organic Arbitrage",
-        "url": "https://organicarbitrage.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Victor Valentine Romo",
-          "url": "https://victorvalentineromo.com"
-        },
-        "sameAs": [
-          ...ENTITY_DOMAINS.map(d => `https://${d}`)
-        ]
-      }
-    ]
-  }, null, 2);
+// ─── Build 404 ───────────────────────────────────────────────────
 
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Organic Arbitrage — Profit from Organic Search Gaps</title>
-    <meta name="description" content="Frameworks for acquiring, valuing, and monetizing undervalued organic traffic. SEO as arbitrage, not marketing." />
-    <meta name="author" content="Victor Valentine Romo" />
-    <meta property="og:title" content="Organic Arbitrage — Profit from Organic Search Gaps" />
-    <meta property="og:description" content="Frameworks for acquiring, valuing, and monetizing undervalued organic traffic." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://organicarbitrage.com" />
-    <meta property="og:site_name" content="Organic Arbitrage" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://organicarbitrage.com/" />
-${ENTITY_LINKS}
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              emerald: {
-                50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-                400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-                800: '#065f46', 900: '#064e3b', 950: '#022c22'
-              }
-            }
-          }
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-${jsonLd}
-    </script>
-</head>
-<body class="bg-white text-gray-900 antialiased">
-
-    <!-- Nav -->
-    <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-xl font-bold text-emerald-600 hover:text-emerald-700 transition-colors">Organic Arbitrage</a>
-            <div class="flex gap-6 text-sm font-medium text-gray-600">
-                <a href="/articles.html" class="hover:text-emerald-600 transition-colors">Articles</a>
-                <a href="#about" class="hover:text-emerald-600 transition-colors">About</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-900 text-white">
-        <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-                Profit from organic<br class="hidden md:block" /> search gaps.
-            </h1>
-            <p class="mt-6 text-lg md:text-xl text-emerald-100 max-w-2xl leading-relaxed">
-                SEO treated as arbitrage, not marketing. Frameworks for finding undervalued traffic, calculating real acquisition costs, and monetizing at multiples above spend.
-            </p>
-            <div class="mt-10 flex flex-wrap gap-4">
-                <a href="/articles.html" class="inline-block bg-white text-emerald-700 font-semibold px-8 py-3 rounded-lg hover:bg-emerald-50 transition-colors">Read the Playbooks</a>
-                <a href="#about" class="inline-block border-2 border-emerald-300 text-emerald-100 font-semibold px-8 py-3 rounded-lg hover:bg-emerald-800 transition-colors">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Grid -->
-    <section class="max-w-5xl mx-auto px-6 py-20">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900">Arbitrage Playbooks</h2>
-            <p class="mt-3 text-gray-600 max-w-xl mx-auto">Each article is a tactical framework with real P&L data, cost models, and implementation steps. No filler.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-${cards}
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="bg-gray-50 border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-6 py-20">
-            <h2 class="text-3xl font-bold text-gray-900">About Organic Arbitrage</h2>
-            <div class="mt-6 space-y-4 text-gray-700 leading-relaxed">
-                <p>Organic Arbitrage treats search traffic as a calculable asset class. Every keyword, domain, and content investment has a measurable spread between acquisition cost and monetization value. The frameworks here help operators identify, evaluate, and execute high-spread plays.</p>
-                <p>Built by <a href="https://victorvalentineromo.com" class="text-emerald-600 hover:underline font-medium">Victor Valentine Romo</a>, who runs a portfolio of organic traffic assets and has spent 4+ years testing expired domain plays, programmatic content models, parasite SEO economics, and SERP volatility strategies. The wins and losses are documented with full P&L transparency.</p>
-                <p>Organic Arbitrage is a <a href="https://scalewithsearch.com" class="text-emerald-600 hover:underline font-medium">Scale With Search</a> property. SWS teaches SEO fundamentals. Organic Arbitrage assumes competence and focuses on the arbitrage layer: finding traffic that costs less to acquire than it generates in revenue.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 bg-white">
-        <div class="max-w-5xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
-            &copy; 2026 Organic Arbitrage. A <a href="https://scalewithsearch.com" class="text-emerald-600 hover:underline">Scale With Search</a> property.
-        </div>
-    </footer>
-
-</body>
-</html>`;
-
-  fs.writeFileSync(path.join(DIST, 'index.html'), html);
-  console.log('Built: index.html');
-}
-
-// Articles hub
-function buildArticlesHub(articles) {
-  const cards = buildArticleCards(articles);
-
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Articles | Organic Arbitrage</title>
-    <meta name="description" content="SEO arbitrage playbooks: expired domain strategies, parasite SEO economics, traffic valuation models, programmatic content ROI, and site flipping frameworks." />
-    <link rel="canonical" href="https://organicarbitrage.com/articles.html" />
-${ENTITY_LINKS}
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              emerald: {
-                50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-                400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-                800: '#065f46', 900: '#064e3b', 950: '#022c22'
-              }
-            }
-          }
-        }
-      }
-    </script>
-</head>
-<body class="bg-white text-gray-900 antialiased">
-
-    <!-- Nav -->
-    <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-xl font-bold text-emerald-600 hover:text-emerald-700 transition-colors">Organic Arbitrage</a>
-            <div class="flex gap-6 text-sm font-medium text-gray-600">
-                <a href="/articles.html" class="text-emerald-600 font-semibold">Articles</a>
-                <a href="/#about" class="hover:text-emerald-600 transition-colors">About</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <section class="bg-emerald-600 text-white">
-        <div class="max-w-5xl mx-auto px-6 py-16">
-            <h1 class="text-3xl md:text-4xl font-bold">Arbitrage Playbooks</h1>
-            <p class="mt-4 text-emerald-100 text-lg max-w-2xl">Tactical frameworks with real cost models and P&L data. Each article covers a specific arbitrage strategy for organic search operators.</p>
-        </div>
-    </section>
-
-    <!-- Articles Grid -->
-    <section class="max-w-5xl mx-auto px-6 py-16">
-        <div class="grid md:grid-cols-2 gap-6">
-${cards}
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 bg-gray-50 mt-8">
-        <div class="max-w-5xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
-            &copy; 2026 Organic Arbitrage. A <a href="https://scalewithsearch.com" class="text-emerald-600 hover:underline">Scale With Search</a> property.
-        </div>
-    </footer>
-
-</body>
-</html>`;
-
-  fs.writeFileSync(path.join(DIST, 'articles.html'), html);
-  console.log('Built: articles.html');
-}
-
-// 404 page
 function build404() {
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+${headIncludes}
     <title>Page Not Found | Organic Arbitrage</title>
     <meta name="robots" content="noindex" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              emerald: {
-                50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-                400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-                800: '#065f46', 900: '#064e3b', 950: '#022c22'
-              }
-            }
-          }
-        }
-      }
-    </script>
 </head>
-<body class="bg-white text-gray-900 antialiased">
+<body>
 
-    <nav class="border-b border-gray-200 bg-white">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-xl font-bold text-emerald-600 hover:text-emerald-700 transition-colors">Organic Arbitrage</a>
-            <div class="flex gap-6 text-sm font-medium text-gray-600">
-                <a href="/articles.html" class="hover:text-emerald-600 transition-colors">Articles</a>
-                <a href="/#about" class="hover:text-emerald-600 transition-colors">About</a>
-            </div>
-        </div>
-    </nav>
+${megaNavHtml}
 
-    <main class="max-w-4xl mx-auto px-6 py-32 text-center">
-        <h1 class="text-6xl font-bold text-emerald-600">404</h1>
-        <p class="mt-4 text-xl text-gray-600">This page doesn't exist. The spread was negative.</p>
-        <a href="/" class="inline-block mt-8 bg-emerald-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors">Back to Home</a>
-    </main>
+  <main class="hero" style="text-align:center;min-height:60vh;display:flex;align-items:center;justify-content:center">
+    <div class="container">
+      <div class="hero__label">404 &mdash; Page Not Found</div>
+      <h1 class="hero__title" style="margin:0 auto">The spread was negative.</h1>
+      <p class="hero__subtitle" style="margin:var(--space-lg) auto 0;text-align:center">This page doesn't exist. The asset you're looking for may have been acquired, delisted, or never listed.</p>
+      <div class="hero__actions" style="justify-content:center">
+        <a href="/" class="btn btn--primary">Back to Home</a>
+        <a href="/articles" class="btn btn--ghost">Browse Articles</a>
+      </div>
+    </div>
+  </main>
 
-    <footer class="border-t border-gray-200 bg-gray-50 mt-16">
-        <div class="max-w-4xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
-            &copy; 2026 Organic Arbitrage. A <a href="https://scalewithsearch.com" class="text-emerald-600 hover:underline">Scale With Search</a> property.
-        </div>
-    </footer>
+${footerHtml}
+
+${megaNavScript}
 
 </body>
 </html>`;
@@ -303,40 +103,8 @@ function build404() {
   console.log('Built: 404.html');
 }
 
-// Sitemap
-function buildSitemap(articles) {
-  const today = new Date().toISOString().split('T')[0];
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://organicarbitrage.com/</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://organicarbitrage.com/articles.html</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>`;
+// ─── Build Robots.txt ────────────────────────────────────────────
 
-  for (const a of articles) {
-    xml += `
-  <url>
-    <loc>https://organicarbitrage.com/articles/${a.slug}.html</loc>
-    <lastmod>${a.date}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>`;
-  }
-
-  xml += '\n</urlset>\n';
-  fs.writeFileSync(path.join(DIST, 'sitemap.xml'), xml);
-  console.log('Built: sitemap.xml');
-}
-
-// Robots.txt
 function buildRobots() {
   const content = `User-agent: *
 Allow: /
@@ -347,23 +115,154 @@ Sitemap: https://organicarbitrage.com/sitemap.xml
   console.log('Built: robots.txt');
 }
 
-// Main
+// ─── Build Articles Hub ──────────────────────────────────────────
+
+function buildArticlesHub(articles) {
+  const cards = articles.map(a => `
+        <a href="/articles/${a.slug}" class="article-card">
+          <div class="article-card__category">${a.category || 'Strategy'}</div>
+          <div class="article-card__title">${escapeHtml(a.title)}</div>
+          <div class="article-card__excerpt">${escapeHtml(a.description)}</div>
+          <div class="article-card__meta">
+            <span>${a.date}</span>
+          </div>
+          <div class="article-card__arrow">Read analysis &rarr;</div>
+        </a>`).join('\n');
+
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      websiteSchema(),
+      organizationSchema(),
+      {
+        "@type": "CollectionPage",
+        "name": "Articles | Organic Arbitrage",
+        "description": "SEO arbitrage playbooks: expired domain strategies, traffic valuation models, programmatic content ROI, and portfolio management frameworks.",
+        "url": "https://organicarbitrage.com/articles"
+      }
+    ]
+  }, null, 2);
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+${headIncludes}
+    <title>Articles | Organic Arbitrage</title>
+    <meta name="description" content="SEO arbitrage playbooks: expired domain strategies, traffic valuation models, programmatic content ROI, and portfolio management frameworks." />
+    <link rel="canonical" href="https://organicarbitrage.com/articles" />
+    <meta property="og:title" content="Articles | Organic Arbitrage" />
+    <meta property="og:description" content="Tactical frameworks with real cost models and P&L data." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://organicarbitrage.com/articles" />
+    <meta property="og:site_name" content="Organic Arbitrage" />
+    <script type="application/ld+json">
+${jsonLd}
+    </script>
+</head>
+<body>
+
+${megaNavHtml}
+
+  <!-- Hub Hero -->
+  <header class="hero hero--article">
+    <div class="container">
+      <div class="breadcrumbs" style="color:#8a8279">
+        <a href="/" style="color:#8a8279">Home</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current" style="color:var(--oa-gold)">Articles</span>
+      </div>
+      <h1 class="hero__title">Arbitrage Playbooks</h1>
+      <p class="hero__subtitle">Tactical frameworks with real cost models and P&L data. Each article covers a specific arbitrage strategy for organic search operators.</p>
+    </div>
+  </header>
+
+  <!-- Articles Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+${cards}
+      </div>
+    </div>
+  </section>
+
+${footerHtml}
+
+${megaNavScript}
+
+</body>
+</html>`;
+
+  // Write as both articles.html and articles/index.html for clean URLs
+  fs.writeFileSync(path.join(DIST, 'articles.html'), html);
+  fs.mkdirSync(path.join(DIST, 'articles'), { recursive: true });
+  fs.writeFileSync(path.join(DIST, 'articles', 'index.html'), html);
+  console.log('Built: articles.html + articles/index.html');
+}
+
+// ─── Escape HTML ─────────────────────────────────────────────────
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// ─── Main ────────────────────────────────────────────────────────
+
 function main() {
+  const start = Date.now();
   console.log('Building organicarbitrage.com...\n');
 
+  // 1. Clean
   clean();
 
+  // 2. Process articles
   console.log('\nProcessing articles...');
   const articles = processArticles();
-  console.log(`\n${articles.length} articles processed.\n`);
+  console.log(`${articles.length} articles processed.\n`);
 
-  buildIndex(articles);
+  // 3. Build articles hub
   buildArticlesHub(articles);
+
+  // 4. Generate category indexes
+  try {
+    generateIndexes(articles);
+  } catch (e) {
+    console.log('Category index generation skipped:', e.message);
+  }
+
+  // 5. Build 404
   build404();
-  buildSitemap(articles);
+
+  // 6. Build robots.txt
   buildRobots();
 
-  console.log(`\nBuild complete. ${articles.length + 4} files in dist/`);
+  // 7. Generate sitemap
+  try {
+    generateSitemap(articles);
+  } catch (e) {
+    console.log('Sitemap generation skipped:', e.message);
+  }
+
+  // 8. Copy statics
+  copyStatics();
+
+  const elapsed = Date.now() - start;
+  const fileCount = countFiles(DIST);
+  console.log(`\nBuild complete. ${fileCount} files in dist/ (${elapsed}ms)`);
+}
+
+function countFiles(dir) {
+  let count = 0;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isFile()) count++;
+    else if (entry.isDirectory()) count += countFiles(path.join(dir, entry.name));
+  }
+  return count;
 }
 
 main();

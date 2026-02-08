@@ -2,6 +2,30 @@
   publish = "dist"
   command = "npm run build"
 
+# Clean URLs — serve .html without extension
+[[redirects]]
+  from = "/articles/:slug"
+  to = "/articles/:slug.html"
+  status = 200
+
+[[redirects]]
+  from = "/setup"
+  to = "/setup.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+# Category indexes handled by directory index.html
+
+# 404 fallback
 [[redirects]]
   from = "/*"
   to = "/404.html"

@@ -2,74 +2,290 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://organicarbitrage.com/</loc>
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles.html</loc>
-    <lastmod>2026-01-31</lastmod>
+    <loc>https://organicarbitrage.com/articles</loc>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/expired-domain-seo-strategy.html</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://organicarbitrage.com/setup</loc>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/strategies</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/flip-seo-site.html</loc>
-    <lastmod>2026-01-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://organicarbitrage.com/tools</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/link-building-roi-analysis.html</loc>
-    <lastmod>2026-01-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://organicarbitrage.com/economics</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/niche-site-monetization-architecture.html</loc>
-    <lastmod>2026-01-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://organicarbitrage.com/case-studies</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/parasite-seo-economics.html</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://organicarbitrage.com/articles/aged-domain-backlink-audit</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/programmatic-seo-roi-calculator.html</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://organicarbitrage.com/articles/ahrefs-domain-rating-explained</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/seo-content-production-economics.html</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://organicarbitrage.com/articles/buy-websites-with-organic-traffic</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/seo-portfolio-management.html</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://organicarbitrage.com/articles/case-study-expired-domain-to-authority-site</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/seo-traffic-valuation-models.html</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://organicarbitrage.com/articles/case-study-failed-seo-acquisition</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicarbitrage.com/articles/serp-volatility-trading.html</loc>
+    <loc>https://organicarbitrage.com/articles/case-study-programmatic-seo-portfolio</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/content-gap-arbitrage</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/cost-per-article-benchmarks</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/domain-auction-platforms-compared</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/domain-authority-transfer-acquisition</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/domain-valuation-multiples</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/expired-domain-auction-strategy</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/expired-domain-crawling-tools</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/expired-domain-seo-strategy</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/find-expired-domains-with-traffic</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/flip-seo-site</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/geographic-seo-arbitrage</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/godaddy-auctions-vs-dropcatch-vs-namejet</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/identify-google-penalties-before-buying</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/keyword-difficulty-mispricing</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/link-building-cost-analysis</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/link-building-roi-analysis</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/niche-site-monetization-architecture</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/organic-traffic-arbitrage-explained</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/parasite-seo-economics</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/programmatic-seo-at-scale</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/programmatic-seo-roi-calculator</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/redirect-strategy-after-domain-purchase</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/revenue-multiple-valuation-seo-sites</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/seasonal-traffic-arbitrage</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/seo-agency-pricing-decoded</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/seo-content-production-economics</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/seo-portfolio-management</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/seo-roi-spreadsheet-template</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/seo-traffic-valuation-models</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/serp-volatility-trading</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/topical-authority-stacking</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/traffic-monetization-models</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/value-website-organic-traffic</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/wayback-machine-domain-research</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicarbitrage.com/articles/website-acquisition-due-diligence-checklist</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
