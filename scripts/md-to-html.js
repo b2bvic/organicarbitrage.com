@@ -258,11 +258,13 @@ const authorCardHtml = `
 
 const articleCtaHtml = `
   <div class="cta-box mt-3xl">
-    <div class="cta-box__label">The Complete System</div>
-    <div class="cta-box__title">Stop Reading Playbooks. Run the Plays.</div>
-    <div class="cta-box__text">Know gives you the valuation models, deal calculators, acquisition checklists, and portfolio frameworks used to generate consistent returns from organic search gaps.</div>
-    <div class="cta-box__price">$1,997 <span>one-time</span></div>
-    <a href="/setup" class="btn btn--primary btn--lg">Get Know</a>
+    <div class="cta-box__label">Scale With Search</div>
+    <div class="cta-box__title">This is one piece of the system.</div>
+    <div class="cta-box__text">Built by Victor Romo (<a href="https://b2bvic.com" style="color:var(--oa-gold)">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</div>
+    <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;margin-top:var(--space-lg)">
+      <a href="https://scalewithsearch.com" class="btn btn--primary btn--lg">See The Full System</a>
+      <a href="https://github.com/b2bvic/scale-with-search" class="btn btn--secondary btn--lg">View Repo</a>
+    </div>
   </div>`;
 
 // ─── Escape HTML ─────────────────────────────────────────────────
